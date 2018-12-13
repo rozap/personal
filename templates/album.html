@@ -1,0 +1,20 @@
+{% extends "templates/core.html" %}
+
+
+{% block main %}
+
+<div class="pure-g album">
+	{% for pic in pics %}
+		<div class="pure-u-1-4 pic">
+			<a href="/static/img/albums/{{ album }}/{{ pic }}" target="_blank">
+				<img class="thumb" src="/static/img/albums/{{ album }}/nthumbs/{{ pic }}"/>
+			</a>
+		</div>
+	{% endfor %}
+
+</div>
+
+
+
+{% endblock %}
+
