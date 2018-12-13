@@ -19,7 +19,15 @@ def posts():
     posts = 'posts'
 
     ugh = []
-    for file in ls(posts):
+    chronological = sorted([
+        (p, [int(d) for d in p.split('.')[0].split('-')]) 
+        for p in ls(posts)
+    ], key=lambda t: t[1])
+    chronological.reverse()
+
+    print(chronological)
+
+    for (file, _) in chronological:
         with open(join(posts, file), 'r') as f:
             ugh.append(markdown.markdown(f.read()))
     return ugh
